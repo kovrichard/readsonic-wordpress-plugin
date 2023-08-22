@@ -30,7 +30,7 @@ function audioblog_jwt_generate_token() {
     $payload = array(
         "iss" => get_site_url(),
         "iat" => time(),
-        "exp" => time() + (60 * 60),  // Token valid for 1 hour
+        "exp" => time() + (60 * 5),  // Token valid for 5 minutes
         "api_token" => $api_token  // Placeholder data
     );
 
