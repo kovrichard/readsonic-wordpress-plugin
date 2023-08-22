@@ -25,6 +25,7 @@ add_action( 'rest_api_init', function () {
 function audioblog_jwt_generate_token() {
     $key = get_option('audioblog_jwt_secret_key');  // Retrieve the secret key from the settings
     $api_token = get_option('audioblog_api_token');  // Retrieve the API token from the settings
+    $voice = get_option('audioblog_voice');  // Retrieve the voice selection from the settings
 
     // Sample payload. You can adjust this as per your needs
     $payload = array(
@@ -37,5 +38,5 @@ function audioblog_jwt_generate_token() {
     // Encode the payload into JWT
     $jwt = JWT::encode($payload, $key, 'HS256');
 
-    return array('token' => $jwt);
+    return array('token' => $jwt, 'voice' => $voice);
 }

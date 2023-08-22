@@ -12,6 +12,7 @@ Author: Richard Kovacs
 
 add_option('audioblog_jwt_secret_key', '');
 add_option('audioblog_api_token', '');
+add_option('audioblog_voice', 'Matthew');
 
 function audioblog_settings_menu() {
         add_options_page(
@@ -41,6 +42,16 @@ function audioblog_settings_page() {
                     <th scope="row">API Token</th>
                     <td><input type="text" name="audioblog_api_token" value="<?php echo esc_attr(get_option('audioblog_api_token')); ?>" /></td>
                 </tr>
+                <tr valign="top">
+                    <th scope="row">Voice Selection</th>
+                    <td>
+                        <select name="audioblog_voice">
+                            <option value="Matthew" <?php selected(get_option('audioblog_voice'), 'Matthew'); ?>>Matthew</option>
+                            <option value="Joanna" <?php selected(get_option('audioblog_voice'), 'Joanna'); ?>>Joanna</option>
+                            <!-- Add more voices as options here if needed -->
+                        </select>
+                    </td>
+                </tr>
             </table>
             <?php submit_button(); ?>
         </form>
@@ -51,6 +62,7 @@ function audioblog_settings_page() {
 function audioblog_register_settings() {
     register_setting('audioblog-settings-group', 'audioblog_jwt_secret_key');
     register_setting('audioblog-settings-group', 'audioblog_api_token');
+    register_setting('audioblog-settings-group', 'audioblog_voice');
 }
 add_action('admin_init', 'audioblog_register_settings');
 

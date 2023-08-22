@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const content = document.getElementsByTagName('body')[0].innerText;
         const payload = {
             "content": content,
-            "voice": "Matthew",
+            "voice": body.voice,
         };
         const awsResponse = await fetch('https://tz26q7b28i.execute-api.eu-central-1.amazonaws.com/stage/tts',
             {
