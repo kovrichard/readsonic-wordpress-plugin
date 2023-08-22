@@ -8,25 +8,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(button);
 
     // Add event listener for the button
-    document.getElementById('audioblog-jwt-button').addEventListener('click', function() {
-        fetch('/wp-json/audioblog-jwt/v1/generate')
-            .then(response => response.json())
-            .catch(error => {
-                console.error('Error fetching JWT:', error);
-            });
+    document.getElementById('audioblog-jwt-button').addEventListener('click', async function() {
+        const response = await fetch('/wp-json/audioblog-jwt/v1/generate')
+        const body = await response.json();
+
         const content = document.getElementsByTagName('body')[0].innerText;
         const payload = {
             "content": content,
             "voice": "Matthew",
         };
-        fetch('https://tz26q7b28i.execute-api.eu-central-1.amazonaws.com/stage/tts', {method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer test-token"}, body: JSON.stringify(payload)})
-        .then(response => response.json())
-        .then((data) => {
-            const audioUrl = data.content;
-            const audioObject = new Audio(audioUrl);
-            //setAudio(audioObject);
-            audioObject.play();
-            //setPaused(false);
-        });
+        const awsResponse = await fetch('https://tz26q7b28i.execute-api.eu-central-1.amazonaws.com/stage/tts',
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${body.token}`
+                },
+                body: JSON.stringify(payload)
+            }
+        )
+        const awsBody = await awsResponse.json();
+
+        const audioUrl = awsBody.content;
+        const audioObject = new Audio(audioUrl);
+        //setAudio(audioObject);
+        audioObject.play();
+        //setPaused(false);
     });
 });
