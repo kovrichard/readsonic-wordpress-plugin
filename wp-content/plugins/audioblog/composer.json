@@ -1,0 +1,12 @@
+{
+    "name": "root/audioblog",
+    "description": "Adds a button to the website that reads the text on the page.",
+    "authors": [
+        {
+            "name": "Richard Kovacs"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.8"
+    }
+}
