@@ -11,30 +11,35 @@ Author: Richard Kovacs
 */
 
 add_option('audioblog_jwt_secret_key', '');
+add_option('audioblog_api_token', '');
 
-function audioblog_jwt_settings_menu() {
+function audioblog_settings_menu() {
         add_options_page(
-        'Audioblog JWT Settings',
-        'Audioblog JWT',
+        'Audioblog Settings',
+        'Audioblog',
         'manage_options',
-        'audioblog-jwt-settings',
-        'audioblog_jwt_settings_page'
+        'audioblog-settings',
+        'audioblog_settings_page'
     );
 }
 
-add_action('admin_menu', 'audioblog_jwt_settings_menu');
+add_action('admin_menu', 'audioblog_settings_menu');
 
-function audioblog_jwt_settings_page() {
+function audioblog_settings_page() {
     ?>
     <div class="wrap">
-        <h1>Audioblog JWT Settings</h1>
+        <h1>Audioblog Settings</h1>
         <form method="post" action="options.php">
-            <?php settings_fields('audioblog-jwt-settings-group'); ?>
-            <?php do_settings_sections('audioblog-jwt-settings-group'); ?>
+            <?php settings_fields('audioblog-settings-group'); ?>
+            <?php do_settings_sections('audioblog-settings-group'); ?>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">JWT Secret Key</th>
                     <td><input type="text" name="audioblog_jwt_secret_key" value="<?php echo esc_attr(get_option('audioblog_jwt_secret_key')); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">API Token</th>
+                    <td><input type="text" name="audioblog_api_token" value="<?php echo esc_attr(get_option('audioblog_api_token')); ?>" /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
@@ -43,10 +48,11 @@ function audioblog_jwt_settings_page() {
     <?php
 }
 
-function audioblog_jwt_register_settings() {
-    register_setting('audioblog-jwt-settings-group', 'audioblog_jwt_secret_key');
+function audioblog_register_settings() {
+    register_setting('audioblog-settings-group', 'audioblog_jwt_secret_key');
+    register_setting('audioblog-settings-group', 'audioblog_api_token');
 }
-add_action('admin_init', 'audioblog_jwt_register_settings');
+add_action('admin_init', 'audioblog_register_settings');
 
 require_once plugin_dir_path(__FILE__) . 'audioblog-jwt-endpoint.php';
 require_once plugin_dir_path(__FILE__) . 'audioblog-enqueue-scripts.php';
