@@ -65,7 +65,7 @@ function audioblog_jwt_generate_token(WP_REST_Request $request) {
 
 function audioblog_jwt_verify_token() {
     $headers = getallheaders();
-    $stored_token = get_transient('my_csrf_token');
+    $stored_token = get_transient('audioblog_csrf_token');
     
     if (isset($headers['X-CSRF-Token']) && $headers['X-CSRF-Token'] === $stored_token) {
         return true;
