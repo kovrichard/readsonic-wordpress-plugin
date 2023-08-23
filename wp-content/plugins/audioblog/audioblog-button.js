@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const content = document.getElementsByTagName('body')[0].innerText;
 
         const response = await fetch('/wp-json/audioblog-jwt/v1/generate', {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': window.csrfToken,
+            },
+            credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify({"content": content}),
         })

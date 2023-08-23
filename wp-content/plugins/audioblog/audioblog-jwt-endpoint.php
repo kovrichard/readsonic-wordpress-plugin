@@ -8,7 +8,7 @@ add_action( 'rest_api_init', function () {
         register_rest_route( 'audioblog-jwt/v1', '/generate', array(
                 'methods' => 'POST',
                 'callback' => 'audioblog_jwt_generate_token',
-                //'permission_callback' => '__return_true'  // Anyone can access this endpoint, but you can adjust this as needed
+                'permission_callback' => 'audioblog_jwt_verify_token'
         ) );
 } );
 
@@ -61,4 +61,14 @@ function audioblog_jwt_generate_token(WP_REST_Request $request) {
     }
 
     return $aws_body;
+}
+
+function audioblog_jwt_verify_token() {
+    $headers = getallheaders();
+    $stored_token = get_transient('my_csrf_token');
+    
+    if (isset($headers['X-CSRF-Token']) && $headers['X-CSRF-Token'] === $stored_token) {
+        return true;
+    }
+    return false;
 }
