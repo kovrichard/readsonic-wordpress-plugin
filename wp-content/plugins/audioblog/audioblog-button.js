@@ -9,27 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add event listener for the button
     document.getElementById('audioblog-jwt-button').addEventListener('click', async function() {
-        const response = await fetch('/wp-json/audioblog-jwt/v1/generate')
-        const body = await response.json();
-
         const content = document.getElementsByTagName('body')[0].innerText;
-        const payload = {
-            "content": content,
-            "voice": body.voice,
-        };
-        const awsResponse = await fetch('https://tz26q7b28i.execute-api.eu-central-1.amazonaws.com/stage/tts',
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${body.token}`
-                },
-                body: JSON.stringify(payload)
-            }
-        )
-        const awsBody = await awsResponse.json();
 
-        const audioUrl = awsBody.content;
+        const response = await fetch('/wp-json/audioblog-jwt/v1/generate', {
+            method: 'POST',
+            body: JSON.stringify({"content": content}),
+        })
+        const body = await response.json();
+        const audioUrl = body.content;
         const audioObject = new Audio(audioUrl);
         //setAudio(audioObject);
         audioObject.play();
