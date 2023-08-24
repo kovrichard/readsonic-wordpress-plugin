@@ -16,6 +16,10 @@ function audioblog_enqueue_scripts() {
     // Enqueue our script
     wp_enqueue_script('audioblog-button', plugin_dir_url(__FILE__) . 'audioblog-button.js', array(), '1.0', true);
 
+    // Enqueue our style
+    wp_enqueue_style('audioblog-button', plugin_dir_url(__FILE__) . 'audioblog-button.css');
+
+
     // Add data to your script
     wp_localize_script('audioblog-button', 'audioblog_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
