@@ -15,6 +15,7 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - wordpress:/var/www/html
+      - vendor:/var/www/html/wp-content/plugins/audioblog/vendor
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
 
   db:
@@ -30,4 +31,5 @@ services:
 
 volumes:
   wordpress:
+  vendor:
   db:
