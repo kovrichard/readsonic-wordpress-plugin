@@ -1,3 +1,4 @@
+let playButton = null;
 let playIcon = null;
 let audio = null;
 let source = null;
@@ -6,7 +7,7 @@ function addAudioMenu(domDocument) {
     const menuRow = domDocument.createElement('div');
     menuRow.id = 'menu-row'
 
-    const playButton = document.createElement('button');
+    playButton = document.createElement('button');
     playButton.id = 'play-button';
     playButton.className = 'menu-button';
 
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         source.type = 'audio/mpeg';
         source.src = audioUrl;
 
+        playButton.style.display = 'none';
         audio.style.display = 'block';
         audio.appendChild(source);
         audio.play();
