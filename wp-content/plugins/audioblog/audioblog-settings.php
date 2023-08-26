@@ -36,9 +36,14 @@ function audioblog_settings_page() {
                     <th scope="row">Voice Selection</th>
                     <td>
                         <select name="audioblog_voice">
-                            <option value="Matthew" <?php selected(get_option('audioblog_voice'), 'Matthew'); ?>>Matthew</option>
-                            <option value="Joanna" <?php selected(get_option('audioblog_voice'), 'Joanna'); ?>>Joanna</option>
-                            <!-- Add more voices as options here if needed -->
+                            <?php
+                                $voices = array('Matthew', 'Joanna', 'Stephen');
+                                $currentVoice = get_option('audioblog_voice');
+
+                                foreach ($voices as $voice) {
+                                    echo '<option value="' . $voice . '" ' . selected($currentVoice, $voice, false) . '>' . $voice . '</option>';
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
