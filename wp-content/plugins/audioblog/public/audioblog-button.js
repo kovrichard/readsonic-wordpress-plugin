@@ -40,7 +40,7 @@ function togglePlay() {
 }
 
 async function fetchAudioUrl(content) {
-    const response = await fetch('/wp-json/audioblog-jwt/v1/generate', {
+    const response = await fetch('/wp-json/audioblog/v1/generate-audio', {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-Token': window.csrfToken,
