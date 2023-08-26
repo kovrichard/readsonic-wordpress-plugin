@@ -10,6 +10,6 @@ Version: 1.0
 Author: Richard Kovacs
 */
 
-require_once plugin_dir_path(__FILE__) . 'audioblog-jwt-endpoint.php';
+require_once plugin_dir_path(__FILE__) . 'audioblog-generate-audio-endpoint.php';
 require_once plugin_dir_path(__FILE__) . 'audioblog-enqueue-scripts.php';
 require_once plugin_dir_path(__FILE__) . 'audioblog-settings.php';
