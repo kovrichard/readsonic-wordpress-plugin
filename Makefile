@@ -18,4 +18,4 @@ logs:
 	docker-compose logs -f wordpress
 
 compress:
-	docker-compose exec wordpress bash -c "cd /var/www/html/wp-content/plugins && zip -r audioblog/audioblog.zip audioblog"
+	docker-compose exec wordpress bash -c "cd /var/www/html/wp-content/plugins && rm audioblog/audioblog.zip && zip -r audioblog/audioblog.zip audioblog"
