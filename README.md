@@ -1,3 +1,5 @@
+# AudioBlog - Hear the story behind every post
+
 ## setup steps
 
 Go to Settings > Permalinks > Permalink structure
