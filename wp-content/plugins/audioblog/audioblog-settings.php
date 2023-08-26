@@ -37,7 +37,7 @@ function audioblog_settings_page() {
                     <td>
                         <select name="audioblog_voice">
                             <?php
-                                $voices = array('Matthew', 'Joanna', 'Stephen');
+                                $voices = array('Lotte', 'Maxim', 'Salli', 'Geraint', 'Miguel', 'Giorgio', 'Marlene', 'Ines', 'Zhiyu', 'Zeina', 'Suvi', 'Karl', 'Gwyneth', 'Joanna', 'Lucia', 'Cristiano', 'Astrid', 'Andres', 'Vicki', 'Mia', 'Vitoria', 'Bianca', 'Chantal', 'Raveena', 'Daniel', 'Amy', 'Liam', 'Ruth', 'Kevin', 'Brian', 'Russell', 'Aria', 'Matthew', 'Aditi', 'Zayd', 'Dora', 'Enrique', 'Hans', 'Hiujin', 'Carmen', 'Sofie', 'Ivy', 'Ewa', 'Maja', 'Gabrielle', 'Nicole', 'Filiz', 'Camila', 'Jacek', 'Thiago', 'Justin', 'Celine', 'Kazuha', 'Kendra', 'Arlet', 'Ricardo', 'Mads', 'Hannah', 'Mathieu', 'Lea', 'Sergio', 'Hala', 'Tatyana', 'Penelope', 'Naja', 'Olivia', 'Ruben', 'Laura', 'Takumi', 'Mizuki', 'Carla', 'Conchita', 'Jan', 'Kimberly', 'Liv', 'Adriano', 'Lupe', 'Joey', 'Pedro', 'Seoyeon', 'Emma', 'Niamh', 'Stephen');
                                 $currentVoice = get_option('audioblog_voice');
 
                                 foreach ($voices as $voice) {
