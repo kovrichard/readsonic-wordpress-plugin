@@ -1,5 +1,6 @@
 === AudioBlog ===
 Contributors: richardkovacs
+Donate link: https://www.buymeacoffee.com/rchardkovacs
 Tags: audio, mp3, listen, blog
 Requires at least: 6.3
 Tested up to: 6.3
