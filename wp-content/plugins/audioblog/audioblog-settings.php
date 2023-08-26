@@ -4,7 +4,7 @@ add_option('audioblog_jwt_secret_key', '');
 add_option('audioblog_api_token', '');
 add_option('audioblog_voice', 'Matthew');
 
-function audioblog_settings_menu() {
+function settings_menu() {
         add_options_page(
         'Audioblog Settings',
         'Audioblog',
@@ -14,7 +14,7 @@ function audioblog_settings_menu() {
     );
 }
 
-add_action('admin_menu', 'audioblog_settings_menu');
+add_action('admin_menu', 'settings_menu');
 
 function audioblog_settings_page() {
     ?>
@@ -49,11 +49,11 @@ function audioblog_settings_page() {
     <?php
 }
 
-function audioblog_register_settings() {
+function register_settings() {
     register_setting('audioblog-settings-group', 'audioblog_jwt_secret_key');
     register_setting('audioblog-settings-group', 'audioblog_api_token');
     register_setting('audioblog-settings-group', 'audioblog_voice');
 }
-add_action('admin_init', 'audioblog_register_settings');
+add_action('admin_init', 'register_settings');
 
 

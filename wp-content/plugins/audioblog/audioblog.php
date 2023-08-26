@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Blog Audio Player
+ * @package AudioBlog
  * @version 1.0
  */
 /*
-Plugin Name: Blog Audio Player
+Plugin Name: AudioBlog
 Description: Adds a button to the website that reads the text on the page.
 Version: 1.0
 Author: Richard Kovacs
