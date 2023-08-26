@@ -1,4 +1,4 @@
-.PHONY: build start stop restart sh logs
+.PHONY: build start stop restart sh logs compress
 
 build:
 	docker-compose build
@@ -16,3 +16,6 @@ sh:
 
 logs:
 	docker-compose logs -f wordpress
+
+compress:
+	docker-compose exec wordpress bash -c "cd /var/www/html/wp-content/plugins && zip -r audioblog/audioblog.zip audioblog"
