@@ -11,6 +11,8 @@ AudioBlog is a plugin that allows you to add audio to your blog posts.
 == Description ==
 Hear the story behind every post.
 
+Your blog's voice, just a click away.
+
 == Installation ==
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of AudioBlog, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
