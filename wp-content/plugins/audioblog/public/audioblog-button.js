@@ -13,7 +13,7 @@ function addAudioMenu(domDocument) {
 
     playIcon = domDocument.createElement('img');
     playIcon.className = 'menu-icon';
-    playIcon.src = '/wp-content/plugins/audioblog/player-play.svg';
+    playIcon.src = '/wp-content/plugins/audioblog/assets/player-play.svg';
     playIcon.width = 24;
     playIcon.height = 24;
 
@@ -83,11 +83,11 @@ function addPlayButtonListener(domDocument) {
 
 function addAudioControlListeners(domDocument) {
     domDocument.getElementById('audio').addEventListener('pause', function() {
-        playIcon.src = '/wp-content/plugins/audioblog/player-play.svg';
+        playIcon.src = '/wp-content/plugins/audioblog/assets/player-play.svg';
     });
 
     domDocument.getElementById('audio').addEventListener('play', function() {
-        playIcon.src = '/wp-content/plugins/audioblog/player-pause.svg';
+        playIcon.src = '/wp-content/plugins/audioblog/assets/player-pause.svg';
     });
 }
 

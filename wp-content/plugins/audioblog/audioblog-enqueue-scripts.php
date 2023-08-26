@@ -14,10 +14,10 @@ add_action('init', 'generate_csrf_token');
 
 function audioblog_enqueue_scripts() {
     // Enqueue our script
-    wp_enqueue_script('audioblog-button', plugin_dir_url(__FILE__) . 'audioblog-button.js', array(), '1.0', true);
+    wp_enqueue_script('audioblog-button', plugin_dir_url(__FILE__) . 'public/audioblog-button.js', array(), '1.0', true);
 
     // Enqueue our style
-    wp_enqueue_style('audioblog-button', plugin_dir_url(__FILE__) . 'audioblog-button.css');
+    wp_enqueue_style('audioblog-button', plugin_dir_url(__FILE__) . 'public/audioblog-button.css');
 
 
     // Add data to your script

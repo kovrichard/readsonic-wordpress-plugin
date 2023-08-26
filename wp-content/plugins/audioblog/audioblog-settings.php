@@ -1,14 +1,4 @@
 <?php
-/**
- * @package Blog Audio Player
- * @version 1.0
- */
-/*
-Plugin Name: Blog Audio Player
-Description: Adds a button to the website that reads the text on the page.
-Version: 1.0
-Author: Richard Kovacs
-*/
 
 add_option('audioblog_jwt_secret_key', '');
 add_option('audioblog_api_token', '');
@@ -66,5 +56,4 @@ function audioblog_register_settings() {
 }
 add_action('admin_init', 'audioblog_register_settings');
 
-require_once plugin_dir_path(__FILE__) . 'audioblog-jwt-endpoint.php';
-require_once plugin_dir_path(__FILE__) . 'audioblog-enqueue-scripts.php';
+
