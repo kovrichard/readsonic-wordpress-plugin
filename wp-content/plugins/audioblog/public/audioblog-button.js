@@ -67,6 +67,8 @@ function addPlayButtonListener(domDocument) {
             return;
         }
 
+        playIcon.src = '/wp-content/plugins/audioblog/assets/loader-2.svg';
+        playIcon.className = 'rotate-360'
         const content = domDocument.getElementsByTagName('main')[0].innerText;
         const response = await fetchAudioUrl(content);
         
@@ -76,6 +78,8 @@ function addPlayButtonListener(domDocument) {
         addSource(domDocument, audioUrl);
 
         playButton.style.display = 'none';
+        playIcon.src = '/wp-content/plugins/audioblog/assets/player-pause.svg';
+        playIcon.className = '';
         audio.style.display = 'block';
         audio.play();
     });
