@@ -39,15 +39,17 @@ function togglePlay() {
     return false;
 }
 
-async function fetchAudioUrl(content) {
-    const response = await fetch('/wp-json/audioblog/v1/generate-audio', {
+async function synthesizePost() {
+    const payload = {
+        "origin": window.location.origin,
+        "slug": window.location.pathname,
+    };
+    const response = await fetch('http://localhost:8090/synthesize', {
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-Token': window.csrfToken,
         },
-        credentials: 'same-origin',
         method: 'POST',
-        body: JSON.stringify({"content": content}),
+        body: JSON.stringify(payload),
     });
     return response;
 }
@@ -69,8 +71,7 @@ function addPlayButtonListener(domDocument) {
 
         playIcon.src = '/wp-content/plugins/audioblog/assets/loader-2.svg';
         playIcon.className = 'rotate-360'
-        const content = domDocument.getElementsByTagName('main')[0].innerText;
-        const response = await fetchAudioUrl(content);
+        const response = await synthesizePost();
         
         const body = await response.json();
         const audioUrl = body.content;
