@@ -1,4 +1,4 @@
-# AudioBlog - Hear the story behind every post
+# ReadSonic - Hear the story behind every post
 
 ## setup steps
 
@@ -8,7 +8,7 @@ Set it to *Post name*
 ## play button html
 
 ``` html
-<button id="play-button" class="menu-button"><img class="menu-icon" src="/wp-content/plugins/audioblog/assets/player-play.svg" width="24" height="24"></button>
+<button id="play-button" class="menu-button"><img class="menu-icon" src="/wp-content/plugins/readsonic/assets/player-play.svg" width="24" height="24"></button>
 ```
 
 ## polly voices

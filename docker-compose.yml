@@ -7,7 +7,7 @@ services:
     build: ./
     restart: always
     ports:
-      - 8080:80
+      - 8090:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: exampleuser
@@ -15,7 +15,7 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - wordpress:/var/www/html
-      - vendor:/var/www/html/wp-content/plugins/audioblog/vendor
+      - vendor:/var/www/html/wp-content/plugins/readsonic/vendor
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
 
   db:

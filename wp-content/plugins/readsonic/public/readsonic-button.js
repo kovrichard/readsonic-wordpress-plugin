@@ -13,7 +13,7 @@ function addAudioMenu(domDocument) {
 
     playIcon = domDocument.createElement('img');
     playIcon.className = 'menu-icon';
-    playIcon.src = '/wp-content/plugins/audioblog/assets/player-play.svg';
+    playIcon.src = '/wp-content/plugins/readsonic/assets/player-play.svg';
     playIcon.width = 24;
     playIcon.height = 24;
 
@@ -69,7 +69,7 @@ function addPlayButtonListener(domDocument) {
             return;
         }
 
-        playIcon.src = '/wp-content/plugins/audioblog/assets/loader-2.svg';
+        playIcon.src = '/wp-content/plugins/readsonic/assets/loader-2.svg';
         playIcon.className = 'rotate-360'
         const response = await synthesizePost();
         
@@ -79,7 +79,7 @@ function addPlayButtonListener(domDocument) {
         addSource(domDocument, audioUrl);
 
         playButton.style.display = 'none';
-        playIcon.src = '/wp-content/plugins/audioblog/assets/player-pause.svg';
+        playIcon.src = '/wp-content/plugins/readsonic/assets/player-pause.svg';
         playIcon.className = '';
         audio.style.display = 'block';
         audio.play();
@@ -88,11 +88,11 @@ function addPlayButtonListener(domDocument) {
 
 function addAudioControlListeners(domDocument) {
     domDocument.getElementById('audio').addEventListener('pause', function() {
-        playIcon.src = '/wp-content/plugins/audioblog/assets/player-play.svg';
+        playIcon.src = '/wp-content/plugins/readsonic/assets/player-play.svg';
     });
 
     domDocument.getElementById('audio').addEventListener('play', function() {
-        playIcon.src = '/wp-content/plugins/audioblog/assets/player-pause.svg';
+        playIcon.src = '/wp-content/plugins/readsonic/assets/player-pause.svg';
     });
 }
 

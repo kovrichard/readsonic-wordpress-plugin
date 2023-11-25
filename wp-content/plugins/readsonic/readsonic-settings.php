@@ -2,23 +2,23 @@
 
 function settings_menu() {
         add_options_page(
-        'Audioblog Settings',
-        'Audioblog',
+        'ReadSonic Settings',
+        'ReadSonic',
         'manage_options',
-        'audioblog-settings',
-        'audioblog_settings_page'
+        'readsonic-settings',
+        'readsonic_settings_page'
     );
 }
 
 add_action('admin_menu', 'settings_menu');
 
-function audioblog_settings_page() {
+function readsonic_settings_page() {
     ?>
     <div class="wrap">
-        <h1>Audioblog Settings</h1>
+        <h1>ReadSonic Settings</h1>
         <form method="post" action="options.php">
-            <?php settings_fields('audioblog-settings-group'); ?>
-            <?php do_settings_sections('audioblog-settings-group'); ?>
+            <?php settings_fields('readsonic-settings-group'); ?>
+            <?php do_settings_sections('readsonic-settings-group'); ?>
             <table class="form-table">
             </table>
             <?php submit_button(); ?>

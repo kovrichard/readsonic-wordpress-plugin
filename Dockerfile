@@ -4,10 +4,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 RUN apt update
 RUN apt install -y zip
 
-COPY ./wp-content/plugins/audioblog/composer.json /var/www/html/wp-content/plugins/audioblog/composer.json
-COPY ./wp-content/plugins/audioblog/composer.lock /var/www/html/wp-content/plugins/audioblog/composer.lock
+COPY ./wp-content/plugins/readsonic/composer.json /var/www/html/wp-content/plugins/readsonic/composer.json
+COPY ./wp-content/plugins/readsonic/composer.lock /var/www/html/wp-content/plugins/readsonic/composer.lock
 
-WORKDIR /var/www/html/wp-content/plugins/audioblog
+WORKDIR /var/www/html/wp-content/plugins/readsonic
 
 RUN composer install --no-dev
 
