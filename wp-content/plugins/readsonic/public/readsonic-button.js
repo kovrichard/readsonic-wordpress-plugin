@@ -3,31 +3,6 @@ let playIcon = null;
 let audio = null;
 let source = null;
 
-function addAudioMenu(domDocument) {
-    const menuRow = domDocument.createElement('div');
-    menuRow.id = 'menu-row'
-
-    playButton = domDocument.createElement('button');
-    playButton.id = 'play-button';
-    playButton.className = 'menu-button';
-
-    playIcon = domDocument.createElement('img');
-    playIcon.className = 'menu-icon';
-    playIcon.src = '/wp-content/plugins/readsonic/assets/player-play.svg';
-    playIcon.width = 24;
-    playIcon.height = 24;
-
-    audio = domDocument.createElement('audio');
-    audio.id = 'audio';
-    audio.controls = true;
-    audio.innerText = 'Your browser does not support the audio element.';
-
-    domDocument.body.appendChild(menuRow);
-    menuRow.appendChild(playButton);
-    playButton.appendChild(playIcon);
-    menuRow.appendChild(audio);
-}
-
 function togglePlay() {
     if (source && !audio.paused) {
         audio.pause();
@@ -44,7 +19,7 @@ async function synthesizePost() {
         "origin": window.location.origin,
         "slug": window.location.pathname,
     };
-    const response = await fetch('http://localhost:8090/synthesize', {
+    const response = await fetch('http://localhost:8080/synthesize', {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -97,7 +72,8 @@ function addAudioControlListeners(domDocument) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    addAudioMenu(document);
+    audio = document.getElementById('audio');
+    playIcon = document.getElementById('play-icon');
     addPlayButtonListener(document);
     addAudioControlListeners(document);
 });
