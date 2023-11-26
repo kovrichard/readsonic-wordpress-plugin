@@ -1,0 +1,46 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-readsonic {
+	border: 1px dotted #f00;
+}
+
+#menu-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent !important;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+}
+
+#menu-icon {
+	border-radius: 50%;
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-360 {
+    animation: rotate360 2s linear infinite;
+}
+
+.audio-player {
+	position: fixed;
+	bottom: 1rem;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "readsonic/readsonic",
+	"version": "0.1.0",
+	"title": "ReadSonic",
+	"category": "widgets",
+	"icon": "media-audio",
+	"description": "Adds a button to the website that reads the text on the page.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "readsonic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
