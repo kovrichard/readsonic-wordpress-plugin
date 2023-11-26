@@ -5,7 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import Play from '../assets/player-play.svg';
+import Play from '../../assets/player-play.svg';
 
 /**
  * The save function defines the way in which the different attributes should

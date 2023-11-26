@@ -24,9 +24,9 @@
 console.log( 'Hello World! (from create-block-readsonic block)' );
 /* eslint-enable no-console */
 
-import Loader from '../assets/loader-2.svg';
-import Play from '../assets/player-play.svg';
-import Pause from '../assets/player-pause.svg';
+import Loader from '../../assets/loader-2.svg';
+import Play from '../../assets/player-play.svg';
+import Pause from '../../assets/player-pause.svg';
 
 let playButton = null;
 let playIcon = null;
