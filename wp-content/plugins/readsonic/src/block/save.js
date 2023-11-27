@@ -5,7 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import Play from '../../assets/player-play.svg';
+import Headphones from '../../assets/headphones.svg';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -21,7 +21,7 @@ export default function save() {
 		<>
 		<div { ...useBlockProps.save() }>
 			<button id="menu-button">
-				<img id="menu-icon" src={Play} style={{ borderRadius: '50%' }} />
+				<img id="menu-icon" src={Headphones} style={{ borderRadius: '50%' }} />
 			</button>
 		</div>
 		<audio id="audio-player" controls autoPlay style={{ display: 'none', position: 'fixed', left: 0, right: 0, bottom: '1rem', width: '30rem' }} />

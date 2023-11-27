@@ -24,7 +24,6 @@ import Loader from '../../assets/loader-2.svg';
 import Play from '../../assets/player-play.svg';
 import Pause from '../../assets/player-pause.svg';
 
-let playButton = null;
 let playIcon = null;
 let audio = null;
 let source = null;

@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
-import Play from '../../assets/player-play.svg';
+import Headphones from '../../assets/headphones.svg';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -35,7 +35,7 @@ export default function Edit() {
     return (
 		<div { ...useBlockProps() }>
 			<button id="menu-button">
-				<img id="menu-icon" src={Play} style={{ borderRadius: '50%' }} />
+				<img id="menu-icon" src={Headphones} style={{ borderRadius: '50%' }} />
 			</button>
 		</div>
     );
