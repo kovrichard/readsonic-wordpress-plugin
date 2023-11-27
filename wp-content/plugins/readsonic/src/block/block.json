@@ -28,6 +28,10 @@
 		"badge": {
 			"type": "boolean",
 			"default": true
+		},
+		"color": {
+			"type": "string",
+			"default": "#000000"
 		}
 	}
 }

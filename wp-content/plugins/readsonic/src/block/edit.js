@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { __experimentalToolsPanel as ToolsPanel, SelectControl, TextControl, CheckboxControl, Flex, FlexItem } from '@wordpress/components';
+import { __experimentalToolsPanel as ToolsPanel, SelectControl, TextControl, CheckboxControl, ColorPicker, ColorIndicator, ColorPalette } from '@wordpress/components';
 
 import icons from './icons';
 
@@ -33,9 +33,12 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { badge, icon, text } = attributes;
+	const { badge, color, icon, text } = attributes;
 	const updateBadge = (newBadge) => {
 		setAttributes({ badge: newBadge });
+	}
+	const updateColor = (newColor) => {
+		setAttributes({ color: newColor });
 	}
 	const updateIcon = (newIcon) => {
 		setAttributes({ icon: newIcon });
@@ -52,6 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Text"
 						value={ text }
 						onChange={ updateText }
+						disabled={ !badge }
 						__nextHasNoMarginBottom
 					/>
 					<SelectControl
@@ -70,10 +74,17 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={ updateBadge }
 						__nextHasNoMarginBottom
 					/>
+					<TextControl
+						label="Color"
+						value={ color }
+						onChange={ updateColor }
+						disabled={ !badge }
+						__nextHasNoMarginBottom
+					/>
 				</ToolsPanel>
 			</InspectorControls>
 			{badge ? (
-				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: '2', backgroundColor: 'red', borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
+				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: '2', backgroundColor: color, borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
 					<span>{text}</span>
 					<button id="menu-button">
 						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
