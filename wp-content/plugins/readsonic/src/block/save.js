@@ -22,7 +22,7 @@ export default function save({ attributes }) {
 		<>
 		<div { ...useBlockProps.save() }>
 			{badge ? (
-				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: '2', backgroundColor: color, borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
+				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
 					<span>{text}</span>
 					<button id="menu-button">
 						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
