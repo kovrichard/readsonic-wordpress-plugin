@@ -11,9 +11,12 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { useState } from '@wordpress/element';
+import { __experimentalToolsPanel as ToolsPanel, SelectControl } from '@wordpress/components';
 
 import Headphones from '../../assets/headphones.svg';
+import Play from '../../assets/player-play.svg';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,10 +35,26 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit() {
+	const [ icon, setIcon ] = useState( Headphones );
+
     return (
 		<div { ...useBlockProps() }>
+			<InspectorControls key="setting">
+				<ToolsPanel>
+					<SelectControl
+						label="Icon"
+						value={ icon }
+						options={ [
+							{ label: 'Headphones', value: Headphones },
+							{ label: 'Play', value: Play },
+						] }
+						onChange={ ( newIcon ) => setIcon( newIcon ) }
+						__nextHasNoMarginBottom
+					/>
+				</ToolsPanel>
+			</InspectorControls>
 			<button id="menu-button">
-				<img id="menu-icon" src={Headphones} style={{ borderRadius: '50%' }} />
+				<img id="menu-icon" src={icon} style={{ borderRadius: '50%' }} />
 			</button>
 		</div>
     );
