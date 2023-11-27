@@ -23,6 +23,7 @@
 import Loader from '../../assets/loader-2.svg';
 import Play from '../../assets/player-play.svg';
 import Pause from '../../assets/player-pause.svg';
+import Headphones from '../../assets/headphones.svg';
 
 let playIcon = null;
 let audio = null;
@@ -69,17 +70,23 @@ function addPlayButtonListener(domDocument) {
         }
 
         playIcon.src = Loader;
-        playIcon.className = 'rotate-360'
-        const response = await synthesizePost();
-        
-        const body = await response.json();
-        const audioUrl = body.content;
-    
-        addSource(domDocument, audioUrl);
+        playIcon.className = 'rotate-360';
 
-        playIcon.src = Pause;
-        playIcon.className = '';
-        audio.style.display = 'block';
+        try {
+            const response = await synthesizePost();
+            
+            const body = await response.json();
+            const audioUrl = body.content;
+            
+            addSource(domDocument, audioUrl);
+
+            playIcon.src = Pause;
+            playIcon.className = '';
+            audio.style.display = 'block';
+        } catch (error) {
+            playIcon.className = '';
+            playIcon.src = Headphones;
+        }
     });
 }
 
