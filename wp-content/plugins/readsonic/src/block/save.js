@@ -5,7 +5,6 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import Headphones from '../../assets/headphones.svg';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -17,12 +16,24 @@ import Headphones from '../../assets/headphones.svg';
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
+	const { badge, icon, text } = attributes;
+
 	return (
 		<>
 		<div { ...useBlockProps.save() }>
-			<button id="menu-button">
-				<img id="menu-icon" src={`data:image/svg+xml;base64,${attributes.icon}`} style={{ borderRadius: '50%' }} />
-			</button>
+			{badge ? (
+				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: '2', backgroundColor: 'red', borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
+					<span>{text}</span>
+					<button id="menu-button">
+						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
+					</button>
+				</div>
+			) : (
+				<button id="menu-button">
+					<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
+				</button>
+			)
+			}
 		</div>
 		<audio id="audio-player" controls autoPlay style={{ display: 'none', position: 'fixed', left: 0, right: 0, bottom: '1rem', width: '30rem' }} />
 		</>
