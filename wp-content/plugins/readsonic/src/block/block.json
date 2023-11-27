@@ -15,5 +15,11 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIGljb24tdGFibGVyIGljb24tdGFibGVyLWhlYWRwaG9uZXMiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogIDxwYXRoIHN0cm9rZT0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik00IDEzbTAgMmEyIDIgMCAwIDEgMiAtMmgxYTIgMiAwIDAgMSAyIDJ2M2EyIDIgMCAwIDEgLTIgMmgtMWEyIDIgMCAwIDEgLTIgLTJ6IiAvPgogIDxwYXRoIGQ9Ik0xNSAxM20wIDJhMiAyIDAgMCAxIDIgLTJoMWEyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxIC0yIDJoLTFhMiAyIDAgMCAxIC0yIC0yeiIgLz4KICA8cGF0aCBkPSJNNCAxNXYtM2E4IDggMCAwIDEgMTYgMHYzIiAvPgo8L3N2Zz4KCgo="
+		}
+	}
 }
