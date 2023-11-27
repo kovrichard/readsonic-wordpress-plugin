@@ -69,6 +69,7 @@ function addPlayButtonListener(domDocument) {
             return;
         }
 
+        const originalIcon = playIcon.src;
         playIcon.src = Loader;
         playIcon.className = 'rotate-360';
 
@@ -85,7 +86,7 @@ function addPlayButtonListener(domDocument) {
             audio.style.display = 'block';
         } catch (error) {
             playIcon.className = '';
-            playIcon.src = Headphones;
+            playIcon.src = originalIcon;
         }
     });
 }

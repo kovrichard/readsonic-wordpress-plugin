@@ -16,12 +16,12 @@ import Headphones from '../../assets/headphones.svg';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function save({ attributes }) {
 	return (
 		<>
 		<div { ...useBlockProps.save() }>
 			<button id="menu-button">
-				<img id="menu-icon" src={Headphones} style={{ borderRadius: '50%' }} />
+				<img id="menu-icon" src={`data:image/svg+xml;base64,${attributes.icon}`} style={{ borderRadius: '50%' }} />
 			</button>
 		</div>
 		<audio id="audio-player" controls autoPlay style={{ display: 'none', position: 'fixed', left: 0, right: 0, bottom: '1rem', width: '30rem' }} />
