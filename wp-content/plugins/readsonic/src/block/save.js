@@ -35,7 +35,7 @@ export default function save({ attributes }) {
 			)
 			}
 		</div>
-		<audio id="audio-player" controls autoPlay style={{ display: 'none', position: 'fixed', left: 0, right: 0, bottom: '1rem', width: '30rem' }} />
+		<audio id="audio-player" controls autoPlay style={{ display: 'none', position: 'fixed', left: 0, right: 0, bottom: '1rem', width: '30rem', margin: 'auto' }} />
 		</>
 	);
 }
