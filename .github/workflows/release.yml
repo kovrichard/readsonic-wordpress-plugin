@@ -25,14 +25,9 @@ jobs:
       
       - name: Build
         run: npm run build --prefix ./wp-content/plugins/readsonic
-      
-      - name: Extract version from tag
-        run: |
-          TAG="${{ github.ref_name }}"
-          VERSION="${TAG#v}"
 
       - name: Create archive
-        run: npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
+        run: npm run package --prefix ./wp-content/plugins/readsonic -- ${{ github.ref_name }}
 
       - name: Set up GitHub CLI
         uses: actions/setup-go@v2
@@ -49,5 +44,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create $TAG ./wp-content/plugins/readsonic/readsonic-$VERSION.zip --title "Release $TAG"
+          gh release create ${{ github.ref_name }} ./wp-content/plugins/readsonic/readsonic-${{ github.ref_name }}.zip --title "Release ${{ github.ref_name }}"
 
