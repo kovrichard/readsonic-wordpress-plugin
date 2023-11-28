@@ -7,12 +7,12 @@ Tested up to: 6.3
 Stable tag: 1.0.0
 Requires PHP: 8.0
 
-ReadSonic is a plugin that allows you to add audio to your blog posts.
+ReadSonic turns your blog into audio with just a few clicks.
 
 == Description ==
 Hear the story behind every post.
 
-Your blog's voice, just a click away.
+Your words, now available in audio. Simple as that. We will turn your blog into audio with just a few clicks.
 
 == Installation ==
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install of ReadSonic, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
