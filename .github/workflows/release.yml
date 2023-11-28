@@ -25,9 +25,10 @@ jobs:
       - name: Build
         run: npm run build --prefix ./wp-content/plugins/readsonic
       
-      - name: Check output
+      - name: Extract version from tag
         run: |
-          echo "Original tag: ${{ github.ref_name }}"
           TAG="${{ github.ref_name }}"
-          FORMATTED_TAG="${TAG#v}"
-          echo "Formatted tag: $FORMATTED_TAG"
+          VERSION="${TAG#v}"
+
+      - name: Create archive
+        run: npm run zip --prefix ./wp-content/plugins/readsonic -- $VERSION
