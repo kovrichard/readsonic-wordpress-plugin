@@ -49,5 +49,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create $VERSION ./wp-content/plugins/readsonic/readsonic-$VERSION.zip --title "Release $VERSION"
+          gh release create $TAG ./wp-content/plugins/readsonic/readsonic-$VERSION.zip --title "Release $TAG"
 
