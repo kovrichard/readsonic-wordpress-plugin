@@ -23,7 +23,6 @@
 import Loader from '../../assets/loader-2.svg';
 import Play from '../../assets/player-play.svg';
 import Pause from '../../assets/player-pause.svg';
-import Headphones from '../../assets/headphones.svg';
 
 let playIcon = null;
 let audio = null;
@@ -45,7 +44,7 @@ async function synthesizePost() {
         "origin": window.location.origin,
         "slug": window.location.pathname,
     };
-    const response = await fetch('http://localhost:8080/synthesize', {
+    const response = await fetch('https://api.readsonic.io/synthesize', {
         headers: {
             'Content-Type': 'application/json',
         },

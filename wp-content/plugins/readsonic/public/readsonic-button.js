@@ -19,7 +19,7 @@ async function synthesizePost() {
         "origin": window.location.origin,
         "slug": window.location.pathname,
     };
-    const response = await fetch('http://localhost:8080/synthesize', {
+    const response = await fetch('https://api.readsonic.io/synthesize', {
         headers: {
             'Content-Type': 'application/json',
         },
