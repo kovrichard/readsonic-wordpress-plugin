@@ -25,12 +25,8 @@ jobs:
       - name: Build
         run: npm run build --prefix ./wp-content/plugins/readsonic
       
-      - name: Extract version from tag
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/v}
-      
       - name: Use version
-        run: echo The version is ${{ steps.get_version.outputs.VERSION }}
+        run: echo The version is ${{ github.event.release.tag_name }}
       
       - name: Create Archive
-        run: npm run zip --prefix ./wp-content/plugins/readsonic -- ${{ steps.get_version.outputs.VERSION }}
+        run: npm run zip --prefix ./wp-content/plugins/readsonic -- ${{ github.event.release.tag_name }}
