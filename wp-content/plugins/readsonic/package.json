@@ -13,7 +13,7 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
-		"package": "node release.js"
+		"package": "node archive.js"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^26.17.0",
