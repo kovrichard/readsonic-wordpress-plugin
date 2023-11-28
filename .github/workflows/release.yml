@@ -31,6 +31,6 @@ jobs:
           VERSION="${TAG#v}"
 
       - name: Create archive
-        run: npm run zip --prefix ./wp-content/plugins/readsonic -- $VERSION
+        run: npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
 
       - uses: technote-space/release-github-actions@v6
