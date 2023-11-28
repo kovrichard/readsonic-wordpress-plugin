@@ -21,11 +21,13 @@ In the search field type "ReadSonic" and click Search Plugins. Once you've found
 
 == Frequently Asked Questions ==
 = How do I add audio to my blog post? =
-Once you install the plugin, a play button will be automatically added to the bottom center of your posts. Clicking the play button will play the audio of the post.
+Once you install the plugin, a new block will be added to the block editor. Searching for "ReadSonic" will bring it up. Add the block to your post template to include it on each post. ReadSonic will take care of the rest.
 
 == Screenshots ==
-1. The play button that is added to the bottom center of your posts.
-2. The audio player that appears when you click the play button.
+1. ReadSonic button with Play icon
+2. ReadSonic button with Headphones icon
+3. ReadSonic button with badge and text
+4. Audio player with controls at the bottom
 
 == Changelog ==
 = 1.0.0 =
