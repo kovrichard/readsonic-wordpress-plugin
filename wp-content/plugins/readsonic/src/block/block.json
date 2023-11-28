@@ -9,7 +9,8 @@
 	"description": "Adds a button to the website that reads the text on the page.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true
 	},
 	"textdomain": "readsonic",
 	"editorScript": "file:./index.js",
