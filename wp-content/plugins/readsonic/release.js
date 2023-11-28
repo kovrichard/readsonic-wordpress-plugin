@@ -1,8 +1,8 @@
 const fs = require('fs');
 const archiver = require('archiver');
 
-function create(version) {
-	const output = fs.createWriteStream(`${__dirname}/readsonic-${version}.zip`);
+function create() {
+	const output = fs.createWriteStream(`${__dirname}/readsonic.zip`);
 	const archive = archiver('zip', {
 		zlib: { level: 9 }
 	});
@@ -36,4 +36,4 @@ function create(version) {
 	archive.finalize();
 }
 
-create(process.argv[2]);
+create();
