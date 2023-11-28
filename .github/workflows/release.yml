@@ -33,13 +33,4 @@ jobs:
       - name: Create archive
         run: npm run zip --prefix ./wp-content/plugins/readsonic -- $VERSION
 
-      - name: Create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
-          body: ${{ github.ref_name }}
-          draft: false
-          prerelease: false
+      - uses: technote-space/release-github-actions@v6
