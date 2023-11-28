@@ -34,6 +34,8 @@ jobs:
         run: npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
 
       - uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           artifacts: "wp-content/plugins/readsonic/readsonic-$VERSION.zip"
 
