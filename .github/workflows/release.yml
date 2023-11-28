@@ -28,5 +28,6 @@ jobs:
       - name: Check output
         run: |
           echo "Original tag: ${{ github.ref_name }}"
-          FORMATTED_TAG="${{ github.ref_name#v }}"
+          TAG="${{ github.ref_name }}"
+          FORMATTED_TAG="${TAG#v}"
           echo "Formatted tag: $FORMATTED_TAG"
