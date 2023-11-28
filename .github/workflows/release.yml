@@ -33,10 +33,20 @@ jobs:
       - name: Create archive
         run: npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
 
-      - uses: ncipollo/release-action@v1
+      - name: Set up GitHub CLI
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.16'
+
+      - name: Install GitHub CLI
+        run: |
+          curl -L https://github.com/cli/cli/releases/download/v2.0.0/gh_2.0.0_linux_amd64.deb -o ghcli.deb
+          sudo dpkg -i ghcli.deb
+          gh --version
+
+      - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          artifacts: "wp-content/plugins/readsonic/readsonic-$VERSION.zip"
-
+        run: |
+          gh release create $VERSION ./wp-content/plugins/readsonic/readsonic-$VERSION.zip --title "Release $VERSION"
 
