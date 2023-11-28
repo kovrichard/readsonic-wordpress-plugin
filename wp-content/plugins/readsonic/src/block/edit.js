@@ -11,8 +11,16 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { __experimentalToolsPanel as ToolsPanel, SelectControl, TextControl, CheckboxControl, ColorPicker, ColorIndicator, ColorPalette } from '@wordpress/components';
+import {
+	InspectorControls,
+	useBlockProps
+} from '@wordpress/block-editor';
+import {
+	__experimentalToolsPanel as ToolsPanel,
+	SelectControl,
+	TextControl,
+	CheckboxControl,
+} from '@wordpress/components';
 
 import icons from './icons';
 
