@@ -33,11 +33,8 @@ jobs:
       - name: Create archive
         run: npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
 
-      - uses: technote-space/release-github-actions@v6
+      - uses: ncipollo/release-action@v1
         with:
-          BUILD_COMMAND: |
-            npm install --prefix ./wp-content/plugins/readsonic
-            npm run build --prefix ./wp-content/plugins/readsonic
-            npm run package --prefix ./wp-content/plugins/readsonic -- $VERSION
+          artifacts: "wp-content/plugins/readsonic/readsonic-$VERSION.zip"
 
 

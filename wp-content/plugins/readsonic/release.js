@@ -2,7 +2,7 @@ const fs = require('fs');
 const archiver = require('archiver');
 
 function create(version) {
-	const output = fs.createWriteStream(`${__dirname}/readsonic-wordpress-plugin-${version}.zip`);
+	const output = fs.createWriteStream(`${__dirname}/readsonic-${version}.zip`);
 	const archive = archiver('zip', {
 		zlib: { level: 9 }
 	});
