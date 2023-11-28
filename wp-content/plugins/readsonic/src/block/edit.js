@@ -59,11 +59,10 @@ export default function Edit({ attributes, setAttributes }) {
 		<div { ...useBlockProps() }>
 			<InspectorControls key="setting">
 				<ToolsPanel>
-					<TextControl
-						label="Text"
-						value={ text }
-						onChange={ updateText }
-						disabled={ !badge }
+					<CheckboxControl
+						label="Badge"
+						checked={ badge }
+						onChange={ updateBadge }
 						__nextHasNoMarginBottom
 					/>
 					<SelectControl
@@ -76,10 +75,11 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={ updateIcon }
 						__nextHasNoMarginBottom
 					/>
-					<CheckboxControl
-						label="Badge"
-						checked={ badge }
-						onChange={ updateBadge }
+					<TextControl
+						label="Text"
+						value={ text }
+						onChange={ updateText }
+						disabled={ !badge }
 						__nextHasNoMarginBottom
 					/>
 					<TextControl
@@ -92,7 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</ToolsPanel>
 			</InspectorControls>
 			{badge ? (
-				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
+				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: text === '' ? '0.5rem' : '1rem', paddingRight: '0.5rem' }}>
 					<span>{text}</span>
 					<button id="menu-button">
 						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />

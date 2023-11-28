@@ -32,7 +32,7 @@
 		},
 		"color": {
 			"type": "string",
-			"default": "#000000"
+			"default": "#efefef"
 		}
 	}
 }
