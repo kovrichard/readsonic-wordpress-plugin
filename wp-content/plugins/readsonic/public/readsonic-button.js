@@ -19,7 +19,7 @@ async function synthesizePost() {
         "origin": window.location.origin,
         "slug": window.location.pathname,
     };
-    const response = await fetch('https://api.readsonic.io/synthesize', {
+    const response = await fetch('https://api.readsonic.io/synthesize/wordpress', {
         headers: {
             'Content-Type': 'application/json',
         },
