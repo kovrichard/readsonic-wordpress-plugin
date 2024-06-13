@@ -10,6 +10,7 @@ Version: 1.0
 Author: Richard Kovacs
 */
 
+require_once plugin_dir_path(__FILE__) . 'readsonic-endpoint.php';
 require_once plugin_dir_path(__FILE__) . 'readsonic-settings.php';
 require_once plugin_dir_path(__FILE__) . 'widget.php';
 
