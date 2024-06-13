@@ -17,7 +17,7 @@ class ReadSonic_Widget extends WP_Widget {
 
         ?>
             <div>
-                <button id="play-button" class="menu-button">
+                <button id="play-button" class="menu-button" aria-label="Listen to this article">
                     <img id="play-icon" class="menu-icon" src="/wp-content/plugins/readsonic/assets/player-play.svg" alt="Play" width=24 height=24 />
                 </button>
             </div>

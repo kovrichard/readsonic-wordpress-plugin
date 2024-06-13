@@ -94,12 +94,12 @@ export default function Edit({ attributes, setAttributes }) {
 			{badge ? (
 				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: text === '' ? '0.5rem' : '1rem', paddingRight: '0.5rem' }}>
 					<span>{text}</span>
-					<button id="menu-button">
+					<button id="menu-button" aria-labe="Listen to this article">
 						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
 					</button>
 				</div>
 			) : (
-				<button id="menu-button">
+				<button id="menu-button" aria-labe="Listen to this article">
 					<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
 				</button>
 			)

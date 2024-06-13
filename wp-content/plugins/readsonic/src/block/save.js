@@ -24,12 +24,12 @@ export default function save({ attributes }) {
 			{badge ? (
 				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: '1rem', paddingRight: '0.5rem' }}>
 					<span>{text}</span>
-					<button id="menu-button">
+					<button id="menu-button" aria-label="Listen to this article">
 						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
 					</button>
 				</div>
 			) : (
-				<button id="menu-button">
+				<button id="menu-button" aria-label="Listen to this article">
 					<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
 				</button>
 			)
