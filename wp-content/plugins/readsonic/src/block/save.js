@@ -18,6 +18,8 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({ attributes }) {
 	const { badge, color, icon, text } = attributes;
 
+	return null;
+
 	return (
 		<>
 		<div { ...useBlockProps.save() }>
