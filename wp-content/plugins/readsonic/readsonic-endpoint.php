@@ -9,16 +9,32 @@ function synthesize($req) {
     }
 
     $content = $post->post_content;
-    $clean_content = clean_content($content);
+    $codeless_content = remove_pre_tags($content);
+    $clean_content = clean_content($codeless_content);
 
-    $response = wp_remote_post('https://api.readsonic.io/synthesize/wordpress', array(
-        'body' => json_encode($params),
+    $payload = array(
+        'origin' => $params['origin'],
+        'slug' => $params['slug'],
+        'content' => $clean_content
+    );
+
+    $response = wp_remote_post('https://api.readsonic.io/synthesize/wordpress/v2', array(
+        'body' => json_encode($payload),
         'headers' => array('Content-Type' => 'application/json'),
+        'timeout' => 60
     ));
+
+    if (is_wp_error($response)) {
+        return new WP_Error('synthesis_error', 'Error synthesizing text', array('status' => 500));
+    }
 
     $body = json_decode($response['body'], true);
 
     return rest_ensure_response($body);
+}
+
+function remove_pre_tags($content) {
+    return preg_replace('/<pre\b[^>]*>.*?<\/pre>/is', '', $content);
 }
 
 function clean_content($content) {
