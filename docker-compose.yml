@@ -17,6 +17,9 @@ services:
       - wordpress:/var/www/html
       - vendor:/var/www/html/wp-content/plugins/readsonic/vendor
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
+    networks:
+      - readsonic
+      - wordpress
 
   db:
     image: mysql:5.7
@@ -28,8 +31,15 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
+    networks:
+      - wordpress
 
 volumes:
   wordpress:
   vendor:
   db:
+
+networks:
+  readsonic:
+    external: true
+  wordpress:
