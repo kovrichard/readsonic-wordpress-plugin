@@ -40,11 +40,12 @@ function togglePlay() {
 }
 
 async function synthesizePost() {
+    const postId = document.getElementById('post-id').innerText;
     const payload = {
         "origin": window.location.origin,
         "slug": window.location.pathname,
     };
-    const response = await fetch('https://api.readsonic.io/synthesize/wordpress', {
+    const response = await fetch(`/wp-json/readsonic/v1/synthesize/${postId}`, {
         headers: {
             'Content-Type': 'application/json',
         },

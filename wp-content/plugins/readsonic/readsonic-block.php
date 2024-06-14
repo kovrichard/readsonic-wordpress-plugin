@@ -20,7 +20,7 @@ function readsonic_render_block( $attributes ) {
     }
 
     $content .= '</div>';
-    $content .= '<audio id="audio-player" controls autoPlay style="display: none; position: fixed; left: 0; right: 0; bottom: \'1rem\'; width: \'30rem\'; margin: \'auto\';" />';
+    $content .= '<audio id="audio-player" controls autoPlay style="display: none; position: fixed; left: 0; right: 0; bottom: 1rem; width: 30rem; margin: auto;" />';
 
     return $content;
 }
