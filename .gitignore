@@ -1,2 +1,4 @@
 vendor
 readsonic.zip
+wp-content/plugins/*
+!wp-content/plugins/readsonic/
