@@ -20,9 +20,9 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-import Loader from '../../assets/loader-2.svg';
-import Play from '../../assets/player-play.svg';
-import Pause from '../../assets/player-pause.svg';
+import Loader from '../assets/loader-2.svg';
+import Play from '../assets/player-play.svg';
+import Pause from '../assets/player-pause.svg';
 
 let playIcon = null;
 let audio = null;

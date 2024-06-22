@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function readsonic_block_init() {
 	// Register block on the server side
 	register_block_type(
-		__DIR__ . '/build/block',
+		__DIR__ . '/build',
 		array(
 			'render_callback' => 'readsonic_render_block',
 		)
