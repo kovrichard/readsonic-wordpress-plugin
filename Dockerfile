@@ -1,4 +1,4 @@
-FROM wordpress:6.3.0-apache
+FROM wordpress:6.5.4-apache
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 RUN apt update

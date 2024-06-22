@@ -1,21 +1,21 @@
 .PHONY: build start stop restart sh logs compress
 
 build:
-	docker-compose build
+	docker compose build
 
 start:
-	docker-compose up -d
+	docker compose up -d
 
 stop:
-	docker-compose down
+	docker compose down
 
 restart: stop start
 
 sh:
-	docker-compose exec wordpress bash
+	docker compose exec wordpress bash
 
 logs:
-	docker-compose logs -f wordpress
+	docker compose logs -f wordpress
 
 compress:
-	docker-compose exec wordpress bash -c "cd /var/www/html/wp-content/plugins && rm readsonic/readsonic.zip && zip -r readsonic/readsonic.zip readsonic"
+	docker compose exec wordpress bash -c "cd /var/www/html/wp-content/plugins && rm readsonic/readsonic.zip && zip -r readsonic/readsonic.zip readsonic"
