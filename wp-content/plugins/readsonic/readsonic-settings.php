@@ -31,4 +31,4 @@ function register_settings() {
 }
 add_action('admin_init', 'register_settings');
 
-
+?>

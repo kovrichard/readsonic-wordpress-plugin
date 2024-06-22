@@ -1,13 +1,33 @@
 /**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
+ * Retrieves the translation of text.
  *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
+ * Imports the InspectorControls component, which is used to wrap
+ * the block's custom controls that will appear in in the Settings
+ * Sidebar when the block is selected.
+ *
+ * Also imports the React hook that is used to mark the block wrapper
+ * element. It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#inspectorcontrols
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+
+/**
+ * Imports the necessary components that will be used to create
+ * the user interface for the block's settings.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/components/panel/#panelbody
+ * @see https://developer.wordpress.org/block-editor/reference-guides/components/text-control/
+ * @see https://developer.wordpress.org/block-editor/reference-guides/components/toggle-control/
+ */
 import {
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-	__experimentalToolsPanel as ToolsPanel,
+	PanelBody,
 	SelectControl,
 	TextControl,
 	CheckboxControl,
@@ -29,14 +49,15 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
- * @param {Object}   props               Props.
- * @param {Object}   props.attributes    The block attributes.
- * @param {Function} props.setAttributes Function to set attributes value.
+ * @param {Object}   props               Properties passed to the function.
+ * @param {Object}   props.attributes    Available block attributes.
+ * @param {Function} props.setAttributes Function that updates individual attributes.
  *
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const { badge, color, icon, text } = attributes;
+
 	const updateBadge = ( newBadge ) => {
 		setAttributes( { badge: newBadge } );
 	};
@@ -51,9 +72,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	};
 
 	return (
-		<div { ...useBlockProps() }>
-			<InspectorControls key="setting">
-				<ToolsPanel>
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Settings', 'readsonic-block' ) }>
 					<CheckboxControl
 						label="Badge"
 						checked={ badge }
@@ -84,25 +105,36 @@ export default function Edit( { attributes, setAttributes } ) {
 						disabled={ ! badge }
 						__nextHasNoMarginBottom
 					/>
-				</ToolsPanel>
+				</PanelBody>
 			</InspectorControls>
-			{ badge ? (
-				<div
-					style={ {
-						display: 'inline-flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-						backgroundColor: color,
-						borderRadius: '2rem',
-						paddingLeft: text === '' ? '0.5rem' : '1rem',
-						paddingRight: '0.5rem',
-					} }
-				>
-					<span>{ text }</span>
-					<button
-						id="menu-button"
-						aria-label="Listen to this article"
+			<div { ...useBlockProps() }>
+				{ badge ? (
+					<div
+						style={ {
+							display: 'inline-flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							backgroundColor: color,
+							borderRadius: '2rem',
+							paddingLeft: text === '' ? '0.5rem' : '1rem',
+							paddingRight: '0.5rem',
+						} }
 					>
+						<span>{ text }</span>
+						<button
+							id="menu-button"
+							aria-label="Listen to this article"
+						>
+							<img
+								id="menu-icon"
+								alt="Listen icon"
+								src={ `data:image/svg+xml;base64,${ icon }` }
+								style={ { borderRadius: '50%' } }
+							/>
+						</button>
+					</div>
+				) : (
+					<button id="menu-button" aria-label="Listen to this article">
 						<img
 							id="menu-icon"
 							alt="Listen icon"
@@ -110,17 +142,8 @@ export default function Edit( { attributes, setAttributes } ) {
 							style={ { borderRadius: '50%' } }
 						/>
 					</button>
-				</div>
-			) : (
-				<button id="menu-button" aria-label="Listen to this article">
-					<img
-						id="menu-icon"
-						alt="Listen icon"
-						src={ `data:image/svg+xml;base64,${ icon }` }
-						style={ { borderRadius: '50%' } }
-					/>
-				</button>
-			) }
-		</div>
+				) }
+			</div>
+		</>
 	);
 }

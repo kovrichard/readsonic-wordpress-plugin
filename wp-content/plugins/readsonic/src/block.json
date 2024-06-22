@@ -5,18 +5,9 @@
 	"version": "0.1.0",
 	"title": "ReadSonic",
 	"category": "widgets",
-	"icon": "media-audio",
+	"icon": "smiley",
 	"description": "Adds a button to the website that reads the text on the page.",
 	"example": {},
-	"supports": {
-		"html": false,
-		"align": true
-	},
-	"textdomain": "readsonic",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js",
 	"attributes": {
 		"icon": {
 			"type": "string",
@@ -34,5 +25,15 @@
 			"type": "string",
 			"default": "#efefef"
 		}
-	}
+	},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"textdomain": "readsonic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
 }
