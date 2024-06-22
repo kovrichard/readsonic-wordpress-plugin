@@ -1,21 +1,12 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-
-/**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
-	InspectorControls,
-	useBlockProps
-} from '@wordpress/block-editor';
-import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalToolsPanel as ToolsPanel,
 	SelectControl,
 	TextControl,
@@ -38,24 +29,28 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
+ * @param {Object}   props               Props.
+ * @param {Object}   props.attributes    The block attributes.
+ * @param {Function} props.setAttributes Function to set attributes value.
+ *
  * @return {Element} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	const { badge, color, icon, text } = attributes;
-	const updateBadge = (newBadge) => {
-		setAttributes({ badge: newBadge });
-	}
-	const updateColor = (newColor) => {
-		setAttributes({ color: newColor });
-	}
-	const updateIcon = (newIcon) => {
-		setAttributes({ icon: newIcon });
-    };
-	const updateText = (newText) => {
-		setAttributes({ text: newText });
+	const updateBadge = ( newBadge ) => {
+		setAttributes( { badge: newBadge } );
+	};
+	const updateColor = ( newColor ) => {
+		setAttributes( { color: newColor } );
+	};
+	const updateIcon = ( newIcon ) => {
+		setAttributes( { icon: newIcon } );
+	};
+	const updateText = ( newText ) => {
+		setAttributes( { text: newText } );
 	};
 
-    return (
+	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls key="setting">
 				<ToolsPanel>
@@ -79,31 +74,53 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Text"
 						value={ text }
 						onChange={ updateText }
-						disabled={ !badge }
+						disabled={ ! badge }
 						__nextHasNoMarginBottom
 					/>
 					<TextControl
 						label="Color"
 						value={ color }
 						onChange={ updateColor }
-						disabled={ !badge }
+						disabled={ ! badge }
 						__nextHasNoMarginBottom
 					/>
 				</ToolsPanel>
 			</InspectorControls>
-			{badge ? (
-				<div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', backgroundColor: color, borderRadius: '2rem', paddingLeft: text === '' ? '0.5rem' : '1rem', paddingRight: '0.5rem' }}>
-					<span>{text}</span>
-					<button id="menu-button" aria-label="Listen to this article">
-						<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
+			{ badge ? (
+				<div
+					style={ {
+						display: 'inline-flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						backgroundColor: color,
+						borderRadius: '2rem',
+						paddingLeft: text === '' ? '0.5rem' : '1rem',
+						paddingRight: '0.5rem',
+					} }
+				>
+					<span>{ text }</span>
+					<button
+						id="menu-button"
+						aria-label="Listen to this article"
+					>
+						<img
+							id="menu-icon"
+							alt="Listen icon"
+							src={ `data:image/svg+xml;base64,${ icon }` }
+							style={ { borderRadius: '50%' } }
+						/>
 					</button>
 				</div>
 			) : (
 				<button id="menu-button" aria-label="Listen to this article">
-					<img id="menu-icon" src={`data:image/svg+xml;base64,${icon}`} style={{ borderRadius: '50%' }} />
+					<img
+						id="menu-icon"
+						alt="Listen icon"
+						src={ `data:image/svg+xml;base64,${ icon }` }
+						style={ { borderRadius: '50%' } }
+					/>
 				</button>
-			)
-			}
+			) }
 		</div>
-    );
+	);
 }

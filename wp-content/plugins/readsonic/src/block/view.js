@@ -29,81 +29,90 @@ let audio = null;
 let source = null;
 
 function togglePlay() {
-    if (source && !audio.paused) {
-        audio.pause();
-        return true;
-    } else if (source && audio.paused) {
-        audio.play();
-        return true;
-    }
-    return false;
+	if ( source && ! audio.paused ) {
+		audio.pause();
+		return true;
+	} else if ( source && audio.paused ) {
+		audio.play();
+		return true;
+	}
+	return false;
 }
 
 async function synthesizePost() {
-    const postId = document.getElementById('post-id').innerText;
-    const payload = {
-        "origin": window.location.origin,
-        "slug": window.location.pathname,
-    };
-    const response = await fetch(`/wp-json/readsonic/v1/synthesize/${postId}`, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify(payload),
-    });
-    return response;
+	const postId = document.getElementById( 'post-id' ).innerText;
+	const payload = {
+		origin: window.location.origin,
+		slug: window.location.pathname,
+	};
+	const response = await fetch(
+		`/wp-json/readsonic/v1/synthesize/${ postId }`,
+		{
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
+			body: JSON.stringify( payload ),
+		}
+	);
+	return response;
 }
 
-function addSource(domDocument, audioUrl) {
-    source = domDocument.createElement('source');
-    source.id = 'audio-source';
-    source.type = 'audio/mpeg';
-    source.src = audioUrl;
-    audio.src = audioUrl;
+function addSource( domDocument, audioUrl ) {
+	source = domDocument.createElement( 'source' );
+	source.id = 'audio-source';
+	source.type = 'audio/mpeg';
+	source.src = audioUrl;
+	audio.src = audioUrl;
 }
 
-function addPlayButtonListener(domDocument) {
-    domDocument.getElementById('menu-button').addEventListener('click', async function() {
-        if (togglePlay()) {
-            return;
-        }
+function addPlayButtonListener( domDocument ) {
+	domDocument
+		.getElementById( 'menu-button' )
+		.addEventListener( 'click', async function () {
+			if ( togglePlay() ) {
+				return;
+			}
 
-        const originalIcon = playIcon.src;
-        playIcon.src = Loader;
-        playIcon.className = 'rotate-360';
+			const originalIcon = playIcon.src;
+			playIcon.src = Loader;
+			playIcon.className = 'rotate-360';
 
-        try {
-            const response = await synthesizePost();
-            
-            const body = await response.json();
-            const audioUrl = body.content;
-            
-            addSource(domDocument, audioUrl);
+			try {
+				const response = await synthesizePost();
 
-            playIcon.src = Pause;
-            playIcon.className = '';
-            audio.style.display = 'block';
-        } catch (error) {
-            playIcon.className = '';
-            playIcon.src = originalIcon;
-        }
-    });
+				const body = await response.json();
+				const audioUrl = body.content;
+
+				addSource( domDocument, audioUrl );
+
+				playIcon.src = Pause;
+				playIcon.className = '';
+				audio.style.display = 'block';
+			} catch ( error ) {
+				playIcon.className = '';
+				playIcon.src = originalIcon;
+			}
+		} );
 }
 
-function addAudioControlListeners(domDocument) {
-    domDocument.getElementById('audio-player').addEventListener('pause', function() {
-        playIcon.src = Play;
-    });
+function addAudioControlListeners( domDocument ) {
+	domDocument
+		.getElementById( 'audio-player' )
+		.addEventListener( 'pause', function () {
+			playIcon.src = Play;
+		} );
 
-    domDocument.getElementById('audio-player').addEventListener('play', function() {
-        playIcon.src = Pause;
-    });
+	domDocument
+		.getElementById( 'audio-player' )
+		.addEventListener( 'play', function () {
+			playIcon.src = Pause;
+		} );
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    audio = document.getElementById('audio-player');
-    playIcon = document.getElementById('menu-icon');
-    addPlayButtonListener(document);
-    addAudioControlListeners(document);
-});
+document.addEventListener( 'DOMContentLoaded', function () {
+	audio = document.getElementById( 'audio-player' );
+	playIcon = document.getElementById( 'menu-icon' );
+	addPlayButtonListener( document );
+	addAudioControlListeners( document );
+} );
